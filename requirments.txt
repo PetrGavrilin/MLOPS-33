@@ -1,0 +1,12 @@
+airflow
+mlflow
+pendulum
+datetime
+pandas
+numpy
+requests
+pyGitHub
+warnings
+pickle
+sktime
+json

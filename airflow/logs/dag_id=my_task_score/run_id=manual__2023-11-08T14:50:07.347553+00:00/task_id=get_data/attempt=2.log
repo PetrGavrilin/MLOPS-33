@@ -1,0 +1,26 @@
+[2023-11-08T17:55:18.964+0300] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_task_score.get_data manual__2023-11-08T14:50:07.347553+00:00 [queued]>
+[2023-11-08T17:55:19.032+0300] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_task_score.get_data manual__2023-11-08T14:50:07.347553+00:00 [queued]>
+[2023-11-08T17:55:19.032+0300] {taskinstance.py:1361} INFO - Starting attempt 2 of 2
+[2023-11-08T17:55:19.158+0300] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): get_data> on 2023-11-08 14:50:07.347553+00:00
+[2023-11-08T17:55:19.175+0300] {standard_task_runner.py:57} INFO - Started process 20253 to run task
+[2023-11-08T17:55:19.206+0300] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'my_task_score', 'get_data', 'manual__2023-11-08T14:50:07.347553+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/run_airflow.py', '--cfg-path', '/tmp/tmp8ir70xbl']
+[2023-11-08T17:55:19.207+0300] {standard_task_runner.py:85} INFO - Job 9: Subtask get_data
+[2023-11-08T17:55:19.553+0300] {task_command.py:416} INFO - Running <TaskInstance: my_task_score.get_data manual__2023-11-08T14:50:07.347553+00:00 [running]> on host MLOPS-3-3.myguest.virtualbox.org
+[2023-11-08T17:55:19.745+0300] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='my_task_score' AIRFLOW_CTX_TASK_ID='get_data' AIRFLOW_CTX_EXECUTION_DATE='2023-11-08T14:50:07.347553+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-11-08T14:50:07.347553+00:00'
+[2023-11-08T17:55:19.749+0300] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-11-08T17:55:19.758+0300] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /home/petr/project/scripts/get_data.py']
+[2023-11-08T17:55:19.774+0300] {subprocess.py:86} INFO - Output:
+[2023-11-08T17:55:19.812+0300] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2023-11-08T17:55:19.813+0300] {subprocess.py:93} INFO -   File "/home/petr/project/scripts/get_data.py", line 1, in <module>
+[2023-11-08T17:55:19.813+0300] {subprocess.py:93} INFO -     from github import Github
+[2023-11-08T17:55:19.814+0300] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'github'
+[2023-11-08T17:55:19.821+0300] {subprocess.py:97} INFO - Command exited with return code 1
+[2023-11-08T17:55:19.861+0300] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/petr/project/venv/lib/python3.10/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2023-11-08T17:55:19.869+0300] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=my_task_score, task_id=get_data, execution_date=20231108T145007, start_date=20231108T145518, end_date=20231108T145519
+[2023-11-08T17:55:19.907+0300] {standard_task_runner.py:104} ERROR - Failed to execute job 9 for task get_data (Bash command failed. The command returned a non-zero exit code 1.; 20253)
+[2023-11-08T17:55:19.943+0300] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-11-08T17:55:20.008+0300] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

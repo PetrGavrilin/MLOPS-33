@@ -1,0 +1,26 @@
+[2023-11-08T20:12:45.662+0300] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_task_score.process_data manual__2023-11-08T17:06:19.522632+00:00 [queued]>
+[2023-11-08T20:12:45.901+0300] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_task_score.process_data manual__2023-11-08T17:06:19.522632+00:00 [queued]>
+[2023-11-08T20:12:45.901+0300] {taskinstance.py:1361} INFO - Starting attempt 2 of 2
+[2023-11-08T20:12:45.953+0300] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): process_data> on 2023-11-08 17:06:19.522632+00:00
+[2023-11-08T20:12:45.966+0300] {standard_task_runner.py:57} INFO - Started process 41974 to run task
+[2023-11-08T20:12:45.974+0300] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'my_task_score', 'process_data', 'manual__2023-11-08T17:06:19.522632+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/run_airflow.py', '--cfg-path', '/tmp/tmp7pn5_e33']
+[2023-11-08T20:12:45.976+0300] {standard_task_runner.py:85} INFO - Job 30: Subtask process_data
+[2023-11-08T20:12:46.166+0300] {task_command.py:416} INFO - Running <TaskInstance: my_task_score.process_data manual__2023-11-08T17:06:19.522632+00:00 [running]> on host MLOPS-3-3.myguest.virtualbox.org
+[2023-11-08T20:12:46.488+0300] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='my_task_score' AIRFLOW_CTX_TASK_ID='process_data' AIRFLOW_CTX_EXECUTION_DATE='2023-11-08T17:06:19.522632+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-11-08T17:06:19.522632+00:00'
+[2023-11-08T20:12:46.491+0300] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2023-11-08T20:12:46.495+0300] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /home/petr/project/scripts/process_data.py']
+[2023-11-08T20:12:46.547+0300] {subprocess.py:86} INFO - Output:
+[2023-11-08T20:12:46.641+0300] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2023-11-08T20:12:46.661+0300] {subprocess.py:93} INFO -   File "/home/petr/project/scripts/process_data.py", line 1, in <module>
+[2023-11-08T20:12:46.661+0300] {subprocess.py:93} INFO -     from tsai.all import *
+[2023-11-08T20:12:46.662+0300] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'tsai'
+[2023-11-08T20:12:46.662+0300] {subprocess.py:97} INFO - Command exited with return code 1
+[2023-11-08T20:12:46.725+0300] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/petr/project/venv/lib/python3.10/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2023-11-08T20:12:46.752+0300] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=my_task_score, task_id=process_data, execution_date=20231108T170619, start_date=20231108T171245, end_date=20231108T171246
+[2023-11-08T20:12:46.871+0300] {standard_task_runner.py:104} ERROR - Failed to execute job 30 for task process_data (Bash command failed. The command returned a non-zero exit code 1.; 41974)
+[2023-11-08T20:12:46.906+0300] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-11-08T20:12:47.044+0300] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
