@@ -24,7 +24,7 @@ mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("get_data")
  
 # Замените 'YOUR_ACCESS_TOKEN' на свой токен доступа
-ACCESS_TOKEN = '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'
+ACCESS_TOKEN = 'YOUR_ACCESS_TOKEN'
  
 # Создаем экземпляр объекта класса Github
 g = Github(ACCESS_TOKEN)
